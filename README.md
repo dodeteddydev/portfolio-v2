@@ -2,8 +2,6 @@
 
 ✨ A redesigned version of my portfolio focused on UI improvements and a better user experience.
 
-If you’re looking for the previous version:
-
 👉 **Portfolio v1:** https://github.com/dodeteddydev/portfolio
 
 ---
