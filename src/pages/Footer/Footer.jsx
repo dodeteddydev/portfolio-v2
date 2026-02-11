@@ -22,14 +22,14 @@ export const Footer = ({
             </li>
             <li
               onClick={() =>
-                window.open("https://www.instagram.com/dodeteddy/", "_blank")
+                window.open("https://www.tiktok.com/@dodeteddydev/", "_blank")
               }
             >
               Tiktok
             </li>
             <li
               onClick={() =>
-                window.open("https://www.tiktok.com/@dodeteddydev/", "_blank")
+                window.open("https://www.instagram.com/dodeteddy/", "_blank")
               }
             >
               Instagram
