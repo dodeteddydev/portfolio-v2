@@ -1,6 +1,6 @@
 export const Footer = ({
   onScrollToExperience = () => {},
-  onScrollToProject = () => {},
+  // onScrollToProject = () => {},
 }) => {
   return (
     <footer className="footer-wrapper">
@@ -9,7 +9,7 @@ export const Footer = ({
           <ul className="footer__nav-navigation">
             <li onClick={() => window.open("/", "_self")}>About</li>
             <li onClick={onScrollToExperience}>Experience</li>
-            <li onClick={onScrollToProject}>Project</li>
+            {/* <li onClick={onScrollToProject}>Project</li> */}
           </ul>
 
           <ul className="footer__nav-navigation footer__nav-navigation-left">
