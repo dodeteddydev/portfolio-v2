@@ -22,8 +22,7 @@ const SmoothScroll = forwardRef(({ children }, ref) => {
     setBodyHeight();
     window.addEventListener("resize", setBodyHeight);
 
-    const onWheel = (e) => {
-      target.current += e.deltaY;
+    const clamp = () => {
       target.current = Math.max(
         0,
         Math.min(
@@ -33,7 +32,29 @@ const SmoothScroll = forwardRef(({ children }, ref) => {
       );
     };
 
+    const onWheel = (e) => {
+      target.current += e.deltaY;
+      clamp();
+    };
+
     window.addEventListener("wheel", onWheel, { passive: true });
+
+    let lastY = 0;
+
+    const onTouchStart = (e) => {
+      lastY = e.touches[0].clientY;
+    };
+
+    const onTouchMove = (e) => {
+      const y = e.touches[0].clientY;
+      const delta = lastY - y;
+      lastY = y;
+      target.current += delta;
+      clamp();
+    };
+
+    window.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("touchmove", onTouchMove, { passive: true });
 
     const loop = () => {
       current.current += (target.current - current.current) * ease;
@@ -46,6 +67,8 @@ const SmoothScroll = forwardRef(({ children }, ref) => {
     return () => {
       window.removeEventListener("resize", setBodyHeight);
       window.removeEventListener("wheel", onWheel);
+      window.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("touchmove", onTouchMove);
     };
   }, []);
 
