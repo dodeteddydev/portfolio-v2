@@ -6,6 +6,13 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  overscroll-behavior: none;
+  overflow: hidden;
+  touch-action: none;
+}
+
 body {
   font-family: "Roboto", system-ui, Avenir, Helvetica, Arial, sans-serif;
   background-color: var(--color-white);
