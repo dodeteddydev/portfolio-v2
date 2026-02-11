@@ -1,0 +1,32 @@
+.btn-connect {
+  width: 100%;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+
+  background-color: var(--color-black);
+  color: var(--color-white);
+
+  cursor: pointer;
+}
+
+.btn-text {
+  position: relative;
+  display: inline-block;
+  height: 1em;
+  overflow: hidden;
+}
+
+.btn-text span {
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.btn-connect:hover .btn-text span:first-child {
+  transform: translateY(-100%);
+}
+
+.btn-connect:hover .btn-text span:last-child {
+  transform: translateY(-100%);
+}

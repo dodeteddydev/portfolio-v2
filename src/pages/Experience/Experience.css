@@ -1,0 +1,30 @@
+@import "./components/ExperienceItem.css";
+
+.experience {
+  padding: 100px 170px;
+}
+
+.experience h2 {
+  font-size: 8rem;
+}
+
+.experience__content-item {
+  margin-top: 50px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (max-width: 820px) {
+  .experience {
+    padding: 100px 50px;
+  }
+}
+
+@media (max-width: 762px) {
+  .experience h2 {
+    font-size: 4rem;
+  }
+}

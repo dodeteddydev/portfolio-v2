@@ -1,0 +1,153 @@
+@import "./components/SkillContentItem.css";
+
+.about {
+  height: 100vh;
+  padding: 100px 170px;
+}
+
+.about__introduce {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: end;
+}
+
+.about__introduce h1 {
+  font-size: 5rem;
+
+  opacity: 0;
+  transform: translateX(-40px);
+  animation: slideRight 0.7s ease forwards;
+  animation-delay: 1s;
+}
+
+.about__introduce h2 {
+  opacity: 0;
+  transform: translateX(-40px);
+  animation: slideRight 0.7s ease forwards;
+  animation-delay: 1.2s;
+}
+
+.about__introduce p {
+  color: var(--color-gray);
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s ease forwards;
+  animation-delay: 1s;
+}
+
+.about__content {
+  margin-top: 30px;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+}
+
+.about__content-skills {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s ease forwards;
+  animation-delay: 1.5s;
+}
+
+.about__content-picture {
+  height: 500px;
+  padding: 15px;
+  border-radius: 30px;
+  text-align: end;
+  background-color: white;
+
+  opacity: 0;
+  transform: translateX(-40px);
+  animation: slideRight 0.7s ease forwards;
+  animation-delay: 1s;
+}
+
+.about__content-picture img {
+  height: 100%;
+  width: auto;
+  border-radius: 25px;
+  object-fit: contain;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.about__content-picture img:hover {
+  transform: scale(1.03);
+  opacity: 0.95;
+}
+
+@media (max-width: 820px) {
+  .about {
+    height: auto;
+    padding: 100px 50px;
+  }
+
+  .about__introduce {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about__introduce h1 {
+    font-size: 2rem;
+  }
+
+  .about__content {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about__content-picture {
+    height: 300px;
+  }
+
+  .about__content-skills {
+    width: 100%;
+  }
+}
+
+@media (max-width: 762px) {
+  .about {
+    padding: 100px 50px;
+  }
+
+  .about__introduce {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .about__introduce h1 {
+    font-size: 3rem;
+  }
+
+  .about__content {
+    grid-template-columns: 1fr;
+  }
+
+  .about__content-skills {
+    width: 100%;
+    justify-content: center;
+
+    margin-bottom: 30px;
+  }
+}
+
+@keyframes slideRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

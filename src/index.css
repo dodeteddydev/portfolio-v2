@@ -1,0 +1,8 @@
+@import "./styles/variables.css";
+@import "./styles/global.css";
+@import "./layouts/MainLayout.css";
+@import "./components/index.css";
+@import "./pages/About/About.css";
+@import "./pages/Experience/Experience.css";
+@import "./pages/Project/Project.css";
+@import "./pages/Footer/Footer.css";

@@ -1,0 +1,25 @@
+.intro {
+  position: fixed;
+  inset: 0;
+  background: black;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translateY(0);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.intro--hide {
+  transform: translateY(-100%);
+}
+
+.intro h2 {
+  font-size: 5rem;
+  font-weight: 900;
+  font-style: italic;
+
+  color: var(--color-white);
+}

@@ -1,0 +1,38 @@
+.experience-item {
+  padding: 2rem;
+  border-radius: 25px;
+  width: 80%;
+
+  background-color: white;
+  color: var(--color-black);
+}
+
+.experience-item-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.experience-item-title h3 {
+  font-size: 1.5rem;
+}
+
+.experience-item-description {
+  margin: 1rem;
+}
+
+@media (max-width: 820px) {
+  .experience-item {
+    width: 100%;
+  }
+}
+
+@media (max-width: 762px) {
+  .experience-item-title h3 {
+    font-size: 1rem;
+  }
+
+  .experience-item-title {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
