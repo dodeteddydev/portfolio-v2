@@ -10,7 +10,7 @@ export const Experience = ({ ref }) => {
         "Developing and maintaining features within the Business Service module of an existing micro-frontend system.",
         "Implemented a centralized notification feature to configure notifications across multiple services.",
         "Maintaining and enhancing existing features to support ongoing product updates.",
-        "Updated the company profile website by adding a new “Just For You” page with submenus for Profession, Business, Entertainment, and Family.",
+        "Maintained and updated the company profile website.",
         "Collaborating with team members to ensure smooth integration with other services.",
       ],
     },
