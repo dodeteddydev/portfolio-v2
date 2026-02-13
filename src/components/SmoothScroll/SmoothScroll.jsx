@@ -14,23 +14,25 @@ const SmoothScroll = forwardRef(({ children }, ref) => {
 
   useEffect(() => {
     const content = contentRef.current;
+    if (!content) return;
 
     const setBodyHeight = () => {
-      document.body.style.height = `${content.getBoundingClientRect().height}px`;
+      const height = content.getBoundingClientRect().height;
+      document.body.style.height = `${height}px`;
     };
-
-    setBodyHeight();
-    window.addEventListener("resize", setBodyHeight);
 
     const clamp = () => {
-      target.current = Math.max(
-        0,
-        Math.min(
-          target.current,
-          document.body.scrollHeight - window.innerHeight,
-        ),
-      );
+      const max = content.getBoundingClientRect().height - window.innerHeight;
+      target.current = Math.max(0, Math.min(target.current, max));
     };
+
+    const ro = new ResizeObserver(() => {
+      setBodyHeight();
+      clamp();
+    });
+
+    ro.observe(content);
+    setBodyHeight();
 
     const onWheel = (e) => {
       target.current += e.deltaY;
@@ -56,24 +58,30 @@ const SmoothScroll = forwardRef(({ children }, ref) => {
     window.addEventListener("touchstart", onTouchStart, { passive: true });
     window.addEventListener("touchmove", onTouchMove, { passive: true });
 
+    let raf;
+
     const loop = () => {
       current.current += (target.current - current.current) * ease;
       content.style.transform = `translateY(${-current.current}px)`;
-      requestAnimationFrame(loop);
+      raf = requestAnimationFrame(loop);
     };
 
     loop();
 
     return () => {
-      window.removeEventListener("resize", setBodyHeight);
+      ro.disconnect();
       window.removeEventListener("wheel", onWheel);
       window.removeEventListener("touchstart", onTouchStart);
       window.removeEventListener("touchmove", onTouchMove);
+      cancelAnimationFrame(raf);
     };
   }, []);
 
   return (
-    <div id="smooth-wrapper">
+    <div
+      id="smooth-wrapper"
+      style={{ position: "fixed", inset: 0, overflow: "hidden" }}
+    >
       <div id="smooth-content" ref={contentRef}>
         {children}
       </div>
